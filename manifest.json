@@ -2,30 +2,35 @@
   "name": "MJ's Weather App",
   "lang": "en",
   "short_name": "Weather App",
-  "description": "",
+  "description": "A PWA That shows the current weather at Tennessee Tech's Ashraf Islam Engineering Building.",
   "start_url": ".",
-  "display": "",
+  "display": "fullscreen",
   "theme_color": "#34363b", 
   "background_color": "#1b1c1f",
-  "categories": "weather",
+  "categories": ["weather"
+
+  ],
 
   "icons": [
     {
-      "src": "images/favicon.io",
+      "src": "images/favicon.ico",
       "sizes": "48x48",
       "type": "icon"
     },
     {
       "src": "/images/60x60WeatherAppIcon.png",
-      "sizes": "60x60"
+      "sizes": "60x60",
+      "type": "image/png"
     },
     {
       "src": "/images/120x120WeatherAppIcon.png",
-      "sizes": "120x120"
+      "sizes": "120x120",
+      "type": "image/png"
     },
     {
       "src": "/images/152x152WeatherAppIcon.png",
-      "sizes": "152x152"
+      "sizes": "152x152",
+      "type": "image/png"
     }
     
   ]
