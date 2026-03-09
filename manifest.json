@@ -1,11 +1,12 @@
 {
   "name": "MJ's Weather App",
+  "lang": "en",
   "short_name": "Weather App",
   "description": "",
   "start_url": ".",
   "display": "",
   "theme_color": "#34363b", 
-  "background-color": "#1b1c1f",
+  "background_color": "#1b1c1f",
   "categories": "weather",
 
   "icons": [
@@ -20,11 +21,11 @@
     },
     {
       "src": "/images/120x120WeatherAppIcon.png",
-      "sizes": "114x114"
+      "sizes": "120x120"
     },
     {
       "src": "/images/152x152WeatherAppIcon.png",
-      "sizes": "144x144"
+      "sizes": "152x152"
     }
     
   ]
