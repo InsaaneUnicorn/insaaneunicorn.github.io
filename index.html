@@ -18,7 +18,7 @@
 <body>
   <div class="d-flex flex-wrap justify-content-center align-items-center vh-100 col-12">
     <div class="card text-center col-11 col-md-5 col-lg-4">
-      <div class="card-body h-100">
+      <div class="card-body h-100 w-100">
         <div class="d-flex flex-row justify-content-evenly align-items-center">
           <div class="d-flex flex-column justify-content-center align-items-center">
             <img src="images/office_building_ping.png" alt="Location Pin Icon" style="max-width: 100px;">
@@ -29,33 +29,26 @@
             <h5 class="p-3">Current Weather</h5>
           
           <hr/>
-          <div class="d-flex flex-column justify-content-evenly align-items-center">
             <div class="flex-row">
               <i class="fa-solid fa-cloud"></i>
-              <p>Temperature</p>
             </div>
             <div class="flex-row justify-content-evenly align-content-center">
               <i class="fa-regular fa-cloud"></i>
-              <p>Apparent Temperature</p>
             </div>
             <div class="flex-row">
               <i class="fa-regular fa-sun"></i>
-              <p>UV Index</p>
             </div>
             <div class="flex-row">
               <i class="fa-solid fa-sun"></i>
-              <p>Relative Humidity</p>
             </div>
             <div class="flex-row">
               <i class="fa-solid fa-cloud-rain"></i>
-              <p>Precipitation Probability</p>
             </div>
-            </div>
-          </div>
+          
           <div class="flex-column justify-content-center align-items-center" id="txtWeatherData">
           
           </div>
-
+          </div>
         </div>
       </div>
     </div>
@@ -68,7 +61,11 @@
   <script>
     const weatherAPI_URL = "https://api.open-meteo.com/v1/forecast?latitude=36.1748736&longitude=-85.5089051&hourly=uv_index,precipitation_probability&current=temperature_2m,relative_humidity_2m,apparent_temperature&timezone=America%2FChicago&forecast_days=1&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch"
     let divWeatherData = document.getElementById("txtWeatherData")
-    let pWeatherDataElement = document.createElement("p")
+    let pCurrentTempElement = document.createElement("p")
+    let pApparentTempElement = document.createElement("p")
+    let pUVIndexElement = document.createElement("p")
+    let pRelativeHumidityElement = document.createElement("p")
+    let pPrecipitationProbElement = document.createElement("p")
     let pTXTContent = ""
 
     fetch(weatherAPI_URL)
@@ -81,25 +78,25 @@
     })
     .then(objWeatherData => {
       // This is for the current temperature
-      pTXTContent = `${objWeatherData.current.temperature_2m} °F`
-      divWeatherData.appendChild(pWeatherDataElement)
-      pWeatherDataElement.textContent = pTXTContent
+      pTXTContent = `Current Temperature ${objWeatherData.current.temperature_2m} °F`
+      divWeatherData.appendChild(pCurrentTempElement)
+      pCurrentTempElement.textContent = pTXTContent
       // This is for the apparent temperature
-      pTXTContent = `${objWeatherData.current.apparent_temperature} °F`
-      divWeatherData.appendChild(pWeatherDataElement)
-      pWeatherDataElement.textContent = pTXTContent
+      pTXTContent = `Apparent Temperature: ${objWeatherData.current.apparent_temperature} °F`
+      divWeatherData.appendChild(pApparentTempElement)
+      pApparentTempElement.textContent = pTXTContent
       // this is for the UV Index
-      pTXTContent = `${objWeatherData.current.temperature_2m}`
-      divWeatherData.appendChild(pWeatherDataElement)
-      pWeatherDataElement.textContent = pTXTContent
+      pTXTContent = `UV Index: ${objWeatherData.hourly.uv_index[0]}`
+      divWeatherData.appendChild(pUVIndexElement)
+      pUVIndexElement.textContent = pTXTContent
       // this is for the relative humidity
-      pTXTContent = `${objWeatherData.current.temperature_2m}`
-      divWeatherData.appendChild(pWeatherDataElement)
-      pWeatherDataElement.textContent = pTXTContent
+      pTXTContent = `Relative Humidity: ${objWeatherData.current.relative_humidity_2m}`
+      divWeatherData.appendChild(pRelativeHumidityElement)
+      pRelativeHumidityElement.textContent = pTXTContent
       // this is for the precipitation probability
-      pTXTContent = `${objWeatherData.current.temperature_2m}`
-      divWeatherData.appendChild(pWeatherDataElement)
-      pWeatherDataElement.textContent = pTXTContent
+      pTXTContent = `Precipitation Probability: ${objWeatherData.hourly.precipitation_probability[0]}%`
+      divWeatherData.appendChild(pPrecepitationProbElement)
+      pPrecepitationProbElement.textContent = pTXTContent
     })
     .catch(error => console.error(error))
 
