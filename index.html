@@ -27,15 +27,30 @@
           <div class="vr"></div> <!-- I got this class from this documentation: https://getbootstrap.com/docs/5.1/helpers/vertical-rule/ -->
           <div class="d-flex flex-column justify-content-center align-items-center">
             <h5 class="p-3">Current Weather</h5>
-          </div>
+          
           <hr>
-          <div class="d-flex flex-row justify-content-evenly align-items-center">
-            <i class="fa-solid fa-cloud">Temperature</i>
-            <i class="fa-regular fa-cloud">Apparent Temperature</i>
-            <i class="fa-regular fa-sun">UV Index</i>
-            <i class="fa-solid fa-sun">Relative Humidity</i>
-            <i class="fa-solid fa-cloud-rain">Precipitation Probability</i>
-
+          <div class="d-flex flex-column justify-content-evenly align-items-center">
+            <div class="flex-row">
+              <i class="fa-solid fa-cloud"></i>
+              <p>Temperature</p>
+            </div>
+            <div class="flex-row justify-content-evenly align-content-center">
+              <i class="fa-regular fa-cloud"></i>
+              <p>Apparent Temperature</p>
+            </div>
+            <div class="flex-row">
+              <i class="fa-regular fa-sun"></i>
+              <p>UV Index</p>
+            </div>
+            <div class="flex-row">
+              <i class="fa-solid fa-sun"></i>
+              <p>Relative Humidity</p>
+            </div>
+            <div class="flex-row">
+              <i class="fa-solid fa-cloud-rain"></i>
+              <p>Precipitation Probability</p>
+            </div>
+            </div>
 
           </div>
         </div>
