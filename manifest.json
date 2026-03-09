@@ -1,0 +1,32 @@
+{
+  "name": "MJ's Weather App",
+  "short_name": "Weather App",
+  "description": "",
+  "start_url": ".",
+  "display": "",
+  "theme_color": "#34363b", 
+  "background-color": "#1b1c1f",
+  "categories": "weather",
+
+  "icons": [
+    {
+      "src": "images/favicon.io",
+      "sizes": "48x48",
+      "type": "icon"
+    },
+    {
+      "src": "/images/60x60WeatherAppIcon.png",
+      "sizes": "60x60"
+    },
+    {
+      "src": "/images/120x120WeatherAppIcon.png",
+      "sizes": "114x114"
+    },
+    {
+      "src": "/images/152x152WeatherAppIcon.png",
+      "sizes": "144x144"
+    }
+    
+  ]
+
+}
