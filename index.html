@@ -28,7 +28,7 @@
           <div class="d-flex flex-column justify-content-center align-items-center">
             <h5 class="p-3">Current Weather</h5>
           
-          <hr>
+          <hr/>
           <div class="d-flex flex-column justify-content-evenly align-items-center">
             <div class="flex-row">
               <i class="fa-solid fa-cloud"></i>
@@ -52,6 +52,10 @@
             </div>
             </div>
           </div>
+          <div class="flex-column justify-content-center align-items-center" id="txtWeatherData">
+          
+          </div>
+
         </div>
       </div>
     </div>
@@ -63,20 +67,41 @@
   <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js "></script>
   <script>
     const weatherAPI_URL = "https://api.open-meteo.com/v1/forecast?latitude=36.1748736&longitude=-85.5089051&hourly=uv_index,precipitation_probability&current=temperature_2m,relative_humidity_2m,apparent_temperature&timezone=America%2FChicago&forecast_days=1&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch"
+    let divWeatherData = document.getElementById("txtWeatherData")
+    let pWeatherDataElement = document.createElement("p")
+    let pTXTContent = ""
 
-
-    // fetch(weatherAPI_URL)
-    // .then(objResponse => {
-    //   if(!objResponse.ok)
-    //   {
-    //     throw new Error(`Bad HTTP Response: ${objResponse.status}`)
-    //   }
-    //   return objResponse.json()
-    // })
-    // .then(objWeatherData => {
-    //   console.log(objWeatherData)
-    // })
-    // .catch(error => console.error(error))
+    fetch(weatherAPI_URL)
+    .then(objResponse => {
+      if(!objResponse.ok)
+      {
+        throw new Error(`Bad HTTP Response: ${objResponse.status}`)
+      }
+      return objResponse.json()
+    })
+    .then(objWeatherData => {
+      // This is for the current temperature
+      pTXTContent = `${objWeatherData.current.temperature_2m} °F`
+      divWeatherData.appendChild(pWeatherDataElement)
+      pWeatherDataElement.textContent = pTXTContent
+      // This is for the apparent temperature
+      pTXTContent = `${objWeatherData.current.apparent_temperature} °F`
+      divWeatherData.appendChild(pWeatherDataElement)
+      pWeatherDataElement.textContent = pTXTContent
+      // this is for the UV Index
+      pTXTContent = `${objWeatherData.current.temperature_2m}`
+      divWeatherData.appendChild(pWeatherDataElement)
+      pWeatherDataElement.textContent = pTXTContent
+      // this is for the relative humidity
+      pTXTContent = `${objWeatherData.current.temperature_2m}`
+      divWeatherData.appendChild(pWeatherDataElement)
+      pWeatherDataElement.textContent = pTXTContent
+      // this is for the precipitation probability
+      pTXTContent = `${objWeatherData.current.temperature_2m}`
+      divWeatherData.appendChild(pWeatherDataElement)
+      pWeatherDataElement.textContent = pTXTContent
+    })
+    .catch(error => console.error(error))
 
   </script>
 </body>
